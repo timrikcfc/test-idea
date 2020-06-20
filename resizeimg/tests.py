@@ -2,8 +2,7 @@ from django.test import TestCase, Client
 from .forms import UploadForm
 from .models import ImgModel
 from django.core.files.images import ImageFile
-import uuid
-from PIL import Image
+import os
 
 
 class TestApp(TestCase):
@@ -14,6 +13,13 @@ class TestApp(TestCase):
         img_test.img = ImageFile(open("resizeimg/tests/test_img.jpg", "rb"))
         img_test.img.name = "test_img.jpeg"
         img_test.save()
+
+    @classmethod
+    def tearDownClass(cls):
+        imgs = os.listdir('media')
+        for img in imgs:
+            if 'test_img_' in img:
+                os.remove(f"media/{img}")
 
     def test_form_url_success(self):
         form = UploadForm(data={
