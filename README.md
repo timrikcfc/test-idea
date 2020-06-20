@@ -1,8 +1,8 @@
 Процесc запуска проекта:
 
 1. git clone https://github.com/timrikcfc/test-idea
-2. python -m venv <myenvname>
-3. source <myenvname>/bin/activate
+2. python -m venv venv
+3. source venv/bin/activate
 4. pip install -r requirements.txt
 5. python manage.py migrate
 6. python manage.py createcachetable
