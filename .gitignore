@@ -70,4 +70,6 @@ coverage.xml
 
 
 # Environments
-.venv
+venv
+
+.idea
