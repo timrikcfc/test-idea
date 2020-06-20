@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Список изображений{% endblock %}
+{% block content %}
+  <h1>Список изображений</h1>
+  <ul class="list-group">
+  {% for i in images %}
+    <li class="list-group-item"><a href="images/{{i.img}}">{{i.img}}</a></li>
+  {% endfor %}
+  </ul>
+{% endblock %}

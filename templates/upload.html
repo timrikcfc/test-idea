@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Загрузка картинки{% endblock %}
+{% block content %}
+  {% if result %}
+    <div class="alert alert-success">
+      Картинка успешно сохранена
+    </div>
+  {% endif %}
+  {% if form.errors %}
+    {% for error in form.non_field_errors %}
+      <div class="alert alert-danger">
+        {{ error|escape }}
+      </div>
+    {% endfor %}
+  {% endif %}
+  {% if error and not form.errors %}
+      <div class="alert alert-danger">
+        {{ error }}
+      </div>
+  {% endif %}
+  <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="form-group">
+        {{ field.label_tag }}
+        {{ field }}
+      </div>
+    {% endfor %}
+    <input class="btn btn-success" type="submit" value="Сохранить">
+  </form>
+{% endblock %}

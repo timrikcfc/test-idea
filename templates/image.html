@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %} Изображение {% endblock %}
+{% block content %}
+  {% if err_mes %}
+    <div class="alert alert-danger">
+        {{ err_mes }}
+      </div>
+  {% endif %}
+  {% if show %}
+    <img src="/media/tmp.jpeg">
+  {% endif %}
+{% endblock %}
